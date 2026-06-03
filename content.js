@@ -10,6 +10,8 @@ function cleanUrl() {
 		url.searchParams.delete("rv");
 
 		history.replaceState({}, "", url);
+
+		location.reload();
 	}
 }
 
@@ -18,13 +20,3 @@ cleanUrl();
 
 // Run whenever YouTube navigates internally
 document.addEventListener("yt-navigate-finish", cleanUrl);
-
-// Fallback for cases where YouTube changes URL without firing the event
-let lastUrl = location.href;
-
-setInterval(() => {
-	if (location.href !== lastUrl) {
-		lastUrl = location.href;
-		cleanUrl();
-	}
-}, 500);
