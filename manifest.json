@@ -1,0 +1,13 @@
+{
+	"manifest_version": 3,
+	"name": "YouTube Radio Remover",
+	"version": "1.0",
+	"description": "Removes YouTube auto-generated radio playlists.",
+	"content_scripts": [
+		{
+			"matches": ["*://www.youtube.com/*", "*://music.youtube.com/*"],
+			"js": ["content.js"],
+			"run_at": "document_start"
+		}
+	]
+}
